@@ -1,23 +1,22 @@
 package by.itclass.passenger;
 
 import by.itclass.airplane.Airplane;
+import by.itclass.fligth.Flight;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
+import lombok.*;
 
 @Entity
 @Table(name = "passenger")
 @NoArgsConstructor
 @RequiredArgsConstructor
-@Data
+@Getter
+@Setter
 public class Passenger {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
-    @NonNull
-    private String fio;
+    @NonNull private String fio;
+    @NonNull private String place;
     @ManyToOne
-    private Airplane airplane;
+    private Flight flight;
 }
